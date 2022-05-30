@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-const Login = (props) => {
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { Context } from "../App";
+const Login = () => {
+  const [, setUser] = useContext(Context);
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [id, setId] = useState("");
   const onChangeName = (e) => {
@@ -13,8 +18,8 @@ const Login = (props) => {
     setId(id);
   };
   const login = () => {
-    props.login({ name: name, id: id });
-    props.history.push("/");
+    setUser({ name, id });
+    navigate("/");
   };
   return (
     <div className='App'>

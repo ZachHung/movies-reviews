@@ -16,6 +16,7 @@ function MoviesList() {
   const [searchRating, setSearchRating] = useState("");
   const [ratings, setRatings] = useState(["All Ratings"]);
   const [isLoading, setLoading] = useState(true);
+
   const [currentPage, setCurrentPage] = useState(0);
   const [entriesPerPage, setEntriesPerPage] = useState(0);
   const [currentSearchMode, setCurrentSearchMode] = useState("");
@@ -42,7 +43,6 @@ function MoviesList() {
         console.log(e);
       });
   };
-
   const retrieveRatings = () => {
     setLoading(true);
     MovieDataService.getRatings()
